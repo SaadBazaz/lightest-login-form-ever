@@ -8,5 +8,7 @@ In this repo I explore the lightest possible login form which has minimal amount
 
 ## Note
 Please feel free to add more to this awesome collection through Pull Requests!
+
 ⭐ Star this repo and follow me for more good code.
+
 ✉️ Feel free to contact me at saadbazaz@hotmail.com
