@@ -1,56 +1,34 @@
 <style>
+    @keyframes expandInput {
+        0% {
+            transform: scaleX(0);
+        }
 
-    @keyframes FadeIn {
-    0% {
-        transform: translate(-10%);
-        opacity: 0;
-    }
-    100% {
-        transform: translate(0%);
-        opacity: 1;
+        100% {
+            transform: scaleX(1);
         }
     }
-
-    @keyframes FadeIn2 {
-    0% {
-        opacity: 0;
-    }
-    25% {
-        transform: translate(-10%);
-        opacity: 0;
-    }
-    100% {
-        transform: translate(0%);
-        opacity: 1;
-        }
-    }
-
-    body{
+    body {
         position: relative;
-        font-family: 'Nunito', 'Google Sans', 'Roboto', sans-serif;
+        font-family: 'Google Sans', 'Roboto', sans-serif;
     }
     input {
         background-color: transparent;
-        padding: 10px;
+        padding: 10px 10px 8px 10px;
         border: none;
         border-bottom: 1px solid rgb(192, 192, 192);
         outline: none;
         font-size: 16px;
-        transition:0.5s;
-    }
-
-    input:focus {
-        border-bottom: 1px solid blue;
         transition: 0.5s;
     }
-
-    input[type="text"]{
-        animation: FadeIn 1s ease-in-out;
+    input:focus {
+        border-bottom: 1px solid #4285F4;
+        transition: 0.5s;
     }
-    input[type="password"]{
-        animation: FadeIn2 1.1s ease-in-out;
+    input[type="text"],
+    input[type="password"] {
+        animation: expandInput 0.4s ease-in-out;
     }
-
     form {
         position: absolute;
         top: 50%;
@@ -60,90 +38,84 @@
         flex-direction: column;
         align-items: center;
     }
-    .btn{
-        background-color: rgb(107, 107, 255);
+    .btn {
+        background-color: rgb(74, 74, 202);
         color: white;
         font-size: 16px;
         padding: 8px 25px;
         border-radius: 5px;
-        transition: 0.4s ease-in-out;
+        transition: 0.2s ease-in-out;
         margin-top: 35px;
         cursor: pointer;
     }
-    .btn:hover:enabled{
+    .btn:hover:enabled {
         background-image: linear-gradient(to bottom, rgba(107, 107, 255, 0.9), rgba(107, 107, 255, 1));
-        box-shadow:    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
     }
-
-    .btn:disabled{
+    .btn:disabled {
         background-color: whitesmoke;
         color: rgb(150, 150, 150);
         cursor: initial;
     }
-
-    .placeholder{
+    .placeholder {
         position: relative;
     }
-
-    .placeholder::after
-    {
+    .placeholder::after {
         position: absolute;
         padding: 10;
         content: attr(data-placeholder);
         pointer-events: none;
         font-size: 16px;
         opacity: 0.3;
-        transition:0.1s;
+        transition: 0.2s ease-in-out;
+        color: black;
     }
-
     .small {
         position: relative;
     }
-
     .small::after {
-        top: -8px;
+        top: -7px;
         padding-top: 0;
-        font-size: 12px;
-        transition:0.2s ease-in-out;
+        font-size: 11px;
+        transition: 0.1s;
     }
-
     .input-parent {
-        margin-top: 17px;
+        margin-top: 20px;
     }
 </style>
 
 <script>
-function done() {
-    btn = document.getElementById('bn');
-    if(document.getElementById("1").value!="" && document.getElementById("2").value!="") { 
-           btn.disabled = false; 
-       } else { 
-           btn.disabled = true;
-       }
-   }
-
-function isClicked(event) {
-    var parentofSelected = event.target.parentNode; // gives the parent DIV
-    var children = parentofSelected.childNodes;
-    for (var i=0; i < children.length; i++) {
-        console.log(children[i].className)
-        if (children[i].className == "placeholder") {
-            children[i].classList.add("small");
-            break;
-        }
-        else if (children[i].className == "placeholder small"){
-            if (event.target.value == ""){
-                children[i].classList.remove("small");
-            }
-            break;
+    function done() {
+        btn = document.getElementById('bn');
+        if (document.getElementById("1").value != "" && document.getElementById("2").value != "") {
+            btn.disabled = false;
+        } else {
+            btn.disabled = true;
         }
     }
-}
+
+    function isClicked(event) {
+        var parentofSelected = event.target.parentNode; // gives the parent DIV 
+        var children = parentofSelected.childNodes;
+        for (var i = 0; i < children.length; i++) {
+            if (children[i] && children[i].classList && children[i].classList.contains('placeholder')) {
+                if (children[i].classList.contains('small')){
+                    if (event.target.value == "") {
+                        children[i].classList.remove("small");
+                    }                    
+                }
+                else{
+                    children[i].classList.add("small");
+                }
+                break;
+            }
+        }
+    }
 
 </script>
 
@@ -151,17 +123,18 @@ function isClicked(event) {
 
 <body>
     <form method="POST" action="">
-        <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" style="width:60px;height:auto;margin-bottom:20px"/>
+        <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+            style="width:60px;height:auto;margin-bottom:10px" />
         <div class="input-parent">
             <div class="placeholder" data-placeholder="Email or phone">
-            </div>  
-            <input id="1" type="text" onfocus="isClicked(event)" onfocusout="isClicked(event)" onkeyup="done()"/>
+            </div>
+            <input id="1" type="text" onfocus="isClicked(event)" onfocusout="isClicked(event)" onkeyup="done()" />
         </div>
         <div class="input-parent">
             <div class="placeholder" data-placeholder="Password">
-            </div>  
-            <input id="2" type="password" onfocus="isClicked(event)" onfocusout="isClicked(event)"  onkeyup="done()"/>
+            </div>
+            <input id="2" type="password" onfocus="isClicked(event)" onfocusout="isClicked(event)" onkeyup="done()" />
         </div>
-        <input id="bn" type="submit" class="btn" value="Next" disabled/>
+        <input id="bn" type="submit" class="btn" value="Next" disabled />
     </form>
 </body>
