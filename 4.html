@@ -27,7 +27,7 @@
 
     body{
         position: relative;
-        font-family: 'Helvetica', sans-serif;
+        font-family: 'Google Sans', 'Roboto', sans-serif;
     }
     input {
         /* background-color: rgb(179, 190, 228); */
@@ -36,15 +36,15 @@
         margin: 5px;
         border-radius: 10ox;
         border: none;
-        border-bottom: 1px solid rgb(71, 71, 71);
+        border-bottom: 1px solid rgb(192, 192, 192);
         outline: none;
         font-size: 25px;
-        transition:0.3s;
+        transition:0.5s;
     }
 
     input:focus {
         border-bottom: 1px solid blue;
-        transition: 0.3s;
+        transition: 0.5s;
     }
 
     /* ::placeholder{
@@ -105,7 +105,7 @@
         content: attr(data-placeholder);
         pointer-events: none;
         font-size: 25px;
-        opacity: 0.6;
+        opacity: 0.3;
         transition:0.1s ease-in-out;
     }
 
@@ -141,24 +141,21 @@ function done() {
    }
 
 function isClicked(event) {
-    console.log("I'm hovered!")
-    pholder = document.getElementById("plac");
-    console.log(pholder)
-    console.log(pholder.value)
-    console.log(event.target)
-    if (pholder.className == "placeholder-small"){
-        if (event.target.value == ""){
-            pholder.className = "placeholder";
+    var parentofSelected = event.target.parentNode; // gives the parent DIV
+    var children = parentofSelected.childNodes;
+    for (var i=0; i < children.length; i++) {
+        console.log(children[i].className)
+        if (children[i].className == "placeholder") {
+            children[i].className = "placeholder-small";
+            break;
+        }
+        else if (children[i].className == "placeholder-small"){
+            if (event.target.value == ""){
+                children[i].className = "placeholder";
+            }
+            break;
         }
     }
-    else {
-        pholder.className = "placeholder-small";
-    }
-    // console.log(pholder.style.top)
-    // console.log(pholder.style.fontSize)
-    // pholder.style.top = "0px";
-    // pholder.style.fontSize = "50%";
-
 }
 
 </script>
@@ -167,11 +164,16 @@ function isClicked(event) {
 
 <body>
     <form method="POST" action="">
-        <div class="parent">
-            <div id="plac" class="placeholder" data-placeholder="Username">
+        <div class="input-parent">
+            <div class="placeholder" data-placeholder="Username">
             </div>  
-            <input id="4" onfocus="isClicked(event)" onfocusout="isClicked(event)"/>
+            <input id="1" type="text" onfocus="isClicked(event)" onfocusout="isClicked(event)"/>
         </div>
-        <button id="bn" type="submit" class="btn" value="LOG IN" disabled/>
+        <div class="input-parent">
+            <div class="placeholder" data-placeholder="Password">
+            </div>  
+            <input id="2" type="password" onfocus="isClicked(event)" onfocusout="isClicked(event)"/>
+        </div>
+        <!-- <button id="bn" type="submit" class="btn" value="LOG IN" disabled/> -->
     </form>
 </body>
