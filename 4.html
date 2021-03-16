@@ -30,15 +30,12 @@
         font-family: 'Nunito', 'Google Sans', 'Roboto', sans-serif;
     }
     input {
-        /* background-color: rgb(179, 190, 228); */
         background-color: transparent;
-        padding-top: 10px;
-        margin: 5px;
-        border-radius: 10ox;
+        padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(192, 192, 192);
         outline: none;
-        font-size: 18px;
+        font-size: 16px;
         transition:0.5s;
     }
 
@@ -46,10 +43,6 @@
         border-bottom: 1px solid blue;
         transition: 0.5s;
     }
-
-    /* ::placeholder{
-        color:white;
-    } */
 
     input[type="text"]{
         animation: FadeIn 1s ease-in-out;
@@ -70,15 +63,15 @@
     .btn{
         background-color: rgb(107, 107, 255);
         color: white;
-        font-size: 18px;
+        font-size: 16px;
         padding: 8px 25px;
         border-radius: 5px;
-        transition: 0.8s;
+        transition: 0.4s ease-in-out;
         margin-top: 35px;
         cursor: pointer;
     }
     .btn:hover:enabled{
-        opacity: 0.7;
+        background-image: linear-gradient(to bottom, rgba(107, 107, 255, 0.9), rgba(107, 107, 255, 1));
         box-shadow:    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
   0 12.5px 10px rgba(0, 0, 0, 0.06),
@@ -86,17 +79,11 @@
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
     }
-    /* .btn:focus{
-        transform: scale(0.8);
-    } */
+
     .btn:disabled{
         background-color: whitesmoke;
         color: rgb(150, 150, 150);
         cursor: initial;
-    }
-    input:focus::placeholder{
-        opacity: 0.2;
-        transition: 0.3s;
     }
 
     .placeholder{
@@ -106,33 +93,27 @@
     .placeholder::after
     {
         position: absolute;
-        left: 5px;
-        top: 15px;
+        padding: 10;
         content: attr(data-placeholder);
         pointer-events: none;
-        font-size: 18px;
+        font-size: 16px;
         opacity: 0.3;
         transition:0.1s;
     }
 
-    .placeholder-small {
+    .small {
         position: relative;
     }
 
-    .placeholder-small::after
-    {
-        position: absolute;
-        left: 5px; 
-        top: 1px;
-        content: attr(data-placeholder);
-        pointer-events: none;
+    .small::after {
+        top: -8px;
+        padding-top: 0;
         font-size: 12px;
-        opacity: 0.3;
         transition:0.2s ease-in-out;
     }
 
     .input-parent {
-        margin-top: 8px;
+        margin-top: 17px;
     }
 </style>
 
@@ -152,12 +133,12 @@ function isClicked(event) {
     for (var i=0; i < children.length; i++) {
         console.log(children[i].className)
         if (children[i].className == "placeholder") {
-            children[i].className = "placeholder-small";
+            children[i].classList.add("small");
             break;
         }
-        else if (children[i].className == "placeholder-small"){
+        else if (children[i].className == "placeholder small"){
             if (event.target.value == ""){
-                children[i].className = "placeholder";
+                children[i].classList.remove("small");
             }
             break;
         }
@@ -170,7 +151,7 @@ function isClicked(event) {
 
 <body>
     <form method="POST" action="">
-        <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" style="width:60px;height:auto;margin-bottom:10px"/>
+        <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" style="width:60px;height:auto;margin-bottom:20px"/>
         <div class="input-parent">
             <div class="placeholder" data-placeholder="Email or phone">
             </div>  
