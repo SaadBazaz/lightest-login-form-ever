@@ -27,7 +27,7 @@
 
     body{
         position: relative;
-        font-family: 'Google Sans', 'Roboto', sans-serif;
+        font-family: 'Nunito', 'Google Sans', 'Roboto', sans-serif;
     }
     input {
         /* background-color: rgb(179, 190, 228); */
@@ -38,7 +38,7 @@
         border: none;
         border-bottom: 1px solid rgb(192, 192, 192);
         outline: none;
-        font-size: 25px;
+        font-size: 18px;
         transition:0.5s;
     }
 
@@ -70,22 +70,28 @@
     .btn{
         background-color: rgb(107, 107, 255);
         color: white;
-        font-size: 25px;
-        padding: 27px 60px;
-        border-radius: 52px;
+        font-size: 18px;
+        padding: 8px 25px;
+        border-radius: 5px;
         transition: 0.8s;
-        letter-spacing: 10;
+        margin-top: 35px;
         cursor: pointer;
     }
-    .btn:hover, .btn:active{
+    .btn:hover:enabled{
         opacity: 0.7;
+        box-shadow:    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
     }
-    .btn:focus{
+    /* .btn:focus{
         transform: scale(0.8);
-    }
+    } */
     .btn:disabled{
-        background-color: transparent;
-        color: rgb(228, 228, 228);
+        background-color: whitesmoke;
+        color: rgb(150, 150, 150);
         cursor: initial;
     }
     input:focus::placeholder{
@@ -104,9 +110,9 @@
         top: 15px;
         content: attr(data-placeholder);
         pointer-events: none;
-        font-size: 25px;
+        font-size: 18px;
         opacity: 0.3;
-        transition:0.1s ease-in-out;
+        transition:0.1s;
     }
 
     .placeholder-small {
@@ -117,17 +123,17 @@
     {
         position: absolute;
         left: 5px; 
-        top: 5px;
+        top: 1px;
         content: attr(data-placeholder);
         pointer-events: none;
         font-size: 12px;
         opacity: 0.3;
-        transition:0.1s;
+        transition:0.2s ease-in-out;
     }
 
-    .parent #4:hover ~ #5 {
-    background: red;
-}
+    .input-parent {
+        margin-top: 8px;
+    }
 </style>
 
 <script>
@@ -160,20 +166,21 @@ function isClicked(event) {
 
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
 <body>
     <form method="POST" action="">
+        <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" style="width:60px;height:auto;margin-bottom:10px"/>
         <div class="input-parent">
-            <div class="placeholder" data-placeholder="Username">
+            <div class="placeholder" data-placeholder="Email or phone">
             </div>  
-            <input id="1" type="text" onfocus="isClicked(event)" onfocusout="isClicked(event)"/>
+            <input id="1" type="text" onfocus="isClicked(event)" onfocusout="isClicked(event)" onkeyup="done()"/>
         </div>
         <div class="input-parent">
             <div class="placeholder" data-placeholder="Password">
             </div>  
-            <input id="2" type="password" onfocus="isClicked(event)" onfocusout="isClicked(event)"/>
+            <input id="2" type="password" onfocus="isClicked(event)" onfocusout="isClicked(event)"  onkeyup="done()"/>
         </div>
-        <!-- <button id="bn" type="submit" class="btn" value="LOG IN" disabled/> -->
+        <input id="bn" type="submit" class="btn" value="Next" disabled/>
     </form>
 </body>
