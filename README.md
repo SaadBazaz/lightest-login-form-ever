@@ -8,16 +8,16 @@ In this repo I explore the lightest possible login form which has minimal amount
 
 ## Sample Screenshots
 # 1
-![Screenshot of sample 1](1.png)
+![Screenshot of sample 1](screenshots/1.png)
 
 # 2
-![Screenshot of sample 2](2.gif)
+![Screenshot of sample 2](screenshots/2.gif)
 
 # 3
-![Screenshot of sample 3](3.gif)
+![Screenshot of sample 3](screenshots/3.gif)
 
 # 4
-![Screenshot of sample 4](4.gif)
+![Screenshot of sample 4](screenshots/4.gif)
 
 ## Note
 Please feel free to add more to this awesome collection through Pull Requests!
