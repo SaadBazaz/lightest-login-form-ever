@@ -7,16 +7,16 @@ While messing on an Arduino Ethernet Shield trying to create a simple webserver,
 In this repo I explore the lightest possible login form which has minimal amount of code, smallest size, most functionality but also looks really pretty.
 
 ## Sample Screenshots
-# 1
-![Screenshot of sample 1](screenshots/1.png)
+### 1
+![Screenshot of sample 1](screenshots/1.PNG)
 
-# 2
+### 2
 ![Screenshot of sample 2](screenshots/2.gif)
 
-# 3
+### 3
 ![Screenshot of sample 3](screenshots/3.gif)
 
-# 4
+### 4
 ![Screenshot of sample 4](screenshots/4.gif)
 
 ## Note
