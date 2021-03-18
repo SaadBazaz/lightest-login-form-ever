@@ -58,17 +58,17 @@
         }
     }
     function evaluateIdInput(event) {
-        elem = event.target
+        elem = event.target;
         if (elem.value != "" & !(elem.value.includes('@')) & isNaN(elem.value)){
-            elem.value = elem.value + "@icloud.com"
+            elem.value = elem.value + "@icloud.com";
         }
     }
     function focusInput(event){
-        evaluateIdInput(event)
+        evaluateIdInput(event);
         event.target.parentNode.classList.add("active");
     }
     function unfocusInput(event){
-        evaluateIdInput(event)
+        evaluateIdInput(event);
         event.target.parentNode.classList.remove("active");
     }
 </script>
