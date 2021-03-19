@@ -1,0 +1,70 @@
+<style>
+    *{
+        font-family: 'Helvetica Neue', 'Roboto', 'Amazon Ember', 'Arial', sans-serif;
+    }
+    body {
+        position: relative;
+    }
+    input {
+        padding: 7px 15px;
+        border-radius: 4px;
+        border: 1px solid #b9b9b9;
+        outline: none;
+        width: 300px;
+        font-size: 15px;
+    }
+    input:focus{
+        border: 1px solid #0070c9;
+        box-shadow: 0 0 7px 1px #006fc97c;
+    }
+    input::placeholder {
+        font-style: italic;
+        font-weight: 400;
+    }
+    input[type="submit"]{
+        margin: 20px 0;
+        background: linear-gradient(#2d8cec,#16b);
+        border-color: #16b #0b4075 #0b4075;
+        color: white;
+        text-shadow: 0px 1px 2px #0000009d;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover{
+        background: linear-gradient(#1762a8,rgb(22, 79, 136));
+    }
+    input[type="submit"]:active, input[type="submit"]:focus{
+        background: linear-gradient(#16b,#2d8cec);
+        box-shadow: none;
+    }
+    form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: FadeIn 2s ease-out;
+    }
+    .heading {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+</style>
+
+<link href="https://db.onlinewebfonts.com/c/157c6cc36dd65b1b2adc9e7f3329c761?family=Amazon+Ember" rel="stylesheet" type="text/css"/>
+
+<body>
+    <form method="POST" action="">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png" style="width:100px;height:auto;margin-bottom: 30px;" />
+        <div class="heading">
+            <h4 style="margin: 0; width:100%;">Root user email address</h4>
+        </div>
+        <input placeholder="username@example.com" id="1" type="text" />
+        <input type="submit" value="Next"/>
+    </form>
+</body>
