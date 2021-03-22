@@ -98,21 +98,34 @@
             btn.disabled = true;
         }
     }
+    var mc;
+    window.onload = () => {
+        mc = document.body;
+        var all = mc.getElementsByTagName('INPUT');
+        for (var i = 0; i < all.length; i++){
+            all[i].addEventListener("mouseenter", function(){
+                setDim(15,15);
+            })
+            all[i].addEventListener("mouseout", function(){
+                setDim(30,30);
+            })
+        }
+    }
     var height, width;
-    function setHeight(h, w){
+    function setDim(h, w){
         height = h;
         width = w;
-        document.body.style.setProperty('background-size',(height+"px "+width+"px"));      
+        mc.style.setProperty('background-size',(height+"px "+width+"px"));      
     }
     async function followMouse(e) {
-        document.body.style.setProperty('background-position',(e.clientX - 15)+'px '+(e.clientY - 15)+'px');
+        mc.style.setProperty('background-position',(e.clientX - 15)+'px '+(e.clientY - 15)+'px');
     }
 </script>
 <body class="cursor" onmousemove="followMouse(event)">
     <form method="POST" action="">
         <p style="margin: 0 auto 35px auto;font-size: 60px; line-height:0.97;width:350px">Hey! Welcome back &#128075;</p>
         <div class="input-parent">
-            <input id="1" type="text" placeholder="Your username" onfocus="isClicked(event)" onfocusout="isClicked(event)" onmouseover="setHeight(15,15)" onmouseout="setHeight(30,30)" onkeyup="done()" />
+            <input id="1" type="text" placeholder="Your username" onkeyup="done()" />
             <div class="border"></div>
         </div>
         <input id="bn" type="submit" class="btn" value="Log In" disabled/>    
