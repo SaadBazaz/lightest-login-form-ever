@@ -124,7 +124,6 @@
     }
     function delay(elem, i) {
         setTimeout(() => {
-            console.log (elem)
             elem.style.setProperty("visibility", "visible");
             elem.style.setProperty("animation", "flipIn " + (1.5+(i*0.1)) +"s");
         }, i*110);
@@ -132,9 +131,8 @@
     var mc;
     window.onload = () => {
         mc = document.body;
-        var form = mc.getElementsByTagName("form")
-        console.log(form)
-        var form_elements = form[0].getElementsByTagName("*")
+        var form = mc.getElementsByTagName("form");
+        var form_elements = form[0].getElementsByTagName("*");
 
         for (var i = 0; i < form_elements.length; i++) {
             form_elements[i].style.setProperty("visibility", "hidden");
@@ -145,24 +143,23 @@
         for (var i = 0; i < all.length; i++){
             all[i].addEventListener("mouseenter", function(){
                 setDim(15,15);
-            })
+            });
             all[i].addEventListener("mouseout", function(){
                 setDim(30,30);
-            })
+            });
         }
 
-    }
+    };
     var height = 30;
     var width = 30;
     function setDim(h, w){
         height = h;
         width = w;
-        // mc.style.setProperty('background-size',(height+"px "+width+"px"));      
     }
     var timestamp = null;
     var lastMouseX = null;
     var lastMouseY = null;
-    async function followMouse(e) {
+    function followMouse(e) {
         if (timestamp === null) {
             timestamp = Date.now();
             lastMouseX = e.screenX;
@@ -170,21 +167,19 @@
             return;
         }
 
-        var now = Date.now() 
+        var now = Date.now();
         var dt =  now - timestamp;
         var speedX = Math.round((e.clientX - lastMouseX) / dt * 200);
         var speedY = Math.round((e.clientY - lastMouseY) / dt * 200);
 
-        var factorX = Math.abs(speedX)
-        var factorY = Math.abs(speedY)
+        var factorX = Math.abs(speedX);
+        var factorY = Math.abs(speedY);
 
-        if (factorX > height) factorX = 0.9 * height
-        if (factorY > width) factorY = 0.9 * width
-
-        // console.log(width - factorX, (height - factorY))
+        if (factorX > height) factorX = 0.9 * height;
+        if (factorY > width) factorY = 0.9 * width;
         
         mc.style.setProperty('background-position',(e.clientX - 15)+'px '+(e.clientY - 15)+'px');
-        mc.style.setProperty('background-size', ( (height - factorY/3) +"px "+ (width - factorX/3) +"px"))
+        mc.style.setProperty('background-size', ( (height - factorY/3) +"px "+ (width - factorX/3) +"px"));
         timestamp = now;
         lastMouseX = e.clientX;
         lastMouseY = e.clientY;
