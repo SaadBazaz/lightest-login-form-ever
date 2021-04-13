@@ -220,6 +220,7 @@ body {
     
     li::marker {
   content: attr(data-emoji);
+      padding-right:1px;
 }
     
     li:hover::marker {
@@ -243,7 +244,7 @@ body {
           if (isNaN(res[0])){
             continue; 
           }
-          htmlString += `<li data-emoji=${emojis[Math.floor( Math.random() * (3 - 0) + 0)]};>
+          htmlString += `<li data-emoji=${emojis[Math.floor( Math.random() * (3 - 0) + 0)]}>
                             <a href="${file.path + '/index.html'}">  
                               ${file.name}
                             </a>
