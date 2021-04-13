@@ -14,11 +14,11 @@
   position: relative;
   box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
   padding: 30px 45px;
-  display: grid;
-  grid-template-columns: 30px auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
-#checklist label {
+a {
   color: var(--text);
   position: relative;
   cursor: pointer;
@@ -29,11 +29,11 @@
   width: fit-content;
   transition: color 0.3s ease;
 }
-#checklist label::before, #checklist label::after {
+a::before, a::after {
   content: "";
   position: absolute;
 }
-#checklist label::before {
+a::before {
   height: 2px;
   width: 8px;
   left: -27px;
@@ -41,7 +41,7 @@
   border-radius: 2px;
   transition: background 0.3s ease;
 }
-#checklist label:after {
+a:after {
   height: 4px;
   width: 4px;
   top: 8px;
@@ -49,6 +49,10 @@
   border-radius: 50%;
 }
 
+a:hover {
+            animation: firework 0.5s ease forwards 0.1s;
+    }
+    
 @-webkit-keyframes move {
   50% {
     padding-left: 8px;
