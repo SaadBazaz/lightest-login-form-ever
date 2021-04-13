@@ -1,6 +1,6 @@
 <html>
   <style>
-    #checklist {
+    ul {
   --background: #ffffff;
   --text: #414856;
   --check: #4F29F0;
@@ -304,8 +304,7 @@ ul {
           console.log(file);
           htmlString += `<li>
                             <a href="${file.path + '/index.html'}">  
-                              <input id="${id}" type="checkbox" name="r" value="${id}">
-                              <label for="${id}">${file.name}</label>
+                              ${file.name}
                             </a>
                         </li>`;
         }
