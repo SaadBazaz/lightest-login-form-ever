@@ -284,6 +284,11 @@ body .socials > a {
 body .socials > a:hover {
   --scale: 1;
 }
+ul {
+   list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */ 
+    }
   </style>
   <body>
     <input id="01" type="checkbox" name="r" value="1" checked>
@@ -297,9 +302,12 @@ body .socials > a:hover {
         let id = 0;
         for (let file of data) {
           console.log(file);
-          htmlString += `<li><a href="${file.path + '/index.html'}">  <input id="${id}" type="checkbox" name="r" value="1" checked>
-  <label for="${id}">${file.name}</label>
-  </a></li>`;
+          htmlString += `<li>
+                            <a href="${file.path + '/index.html'}">  
+                              <input id="${id}" type="checkbox" name="r" value="${id}">
+                              <label for="${id}">${file.name}</label>
+                            </a>
+                        </li>`;
         }
         htmlString += '</ul>';
         document.getElementsByTagName('body')[0].innerHTML = htmlString;
