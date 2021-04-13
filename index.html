@@ -16,7 +16,7 @@
   padding: 30px 45px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 a {
   color: var(--text);
@@ -49,7 +49,7 @@ a:after {
   border-radius: 50%;
 }
 
-a:hover {
+a:active {
             animation: firework 0.5s ease forwards 0.1s;
     }
     
@@ -217,6 +217,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+    
+    li::marker {
+  content: attr(data-emoji);
+}
+    
+    li:hover::marker {
+  content: "🤯";
+}
+    
   </style>
   <body>
     <script>
