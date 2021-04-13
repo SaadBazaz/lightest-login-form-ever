@@ -92,18 +92,18 @@
         for (var i = 0; i < all.length; i++){
             all[i].addEventListener("mouseenter", function(){
                 setDim(210);
-            })
+            });
             all[i].addEventListener("mouseout", function(){
                 setDim(200);
-            })
+            });
         }
-    }
+    };
     var b_size;
     function setDim(b){
         b_size = b;
         mc.style.setProperty('background-size',(b_size+"vh"));      
     }
-    async function followMouse(e) {
+    function followMouse(e) {
         mc.style.setProperty('background-position-x',(30 + e.clientX/2)+'px, ' + (30 + e.clientX/4)+'px, ' + (30 + e.clientX/8)+'px' );
     }
 </script>
