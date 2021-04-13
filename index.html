@@ -300,9 +300,14 @@ ul {
         console.log(data)
         let htmlString = '<ul>';
         let id = 0;
+        emojis = ["🤪", "😴", "🤠"]
         for (let file of data) {
           console.log(file);
-          htmlString += `<li>
+          var res = file.name.split(" ");
+          if (res[0].isNaN()){
+            continue; 
+          }
+          htmlString += `<li data-emoji=${emojis[Math.random() * (3 - 0) + 0]};>
                             <a href="${file.path + '/index.html'}">  
                               ${file.name}
                             </a>
