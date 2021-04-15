@@ -1,4 +1,22 @@
 <style>
+.typewriter h1 {
+  overflow: hidden;
+  border-right: .15em solid #2f5c63;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: 
+    typing 1.5s steps(20, end),
+    blink-caret .5s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #2f5c63; }
+}
+
     *{
         font-family: 'Varela Round', 'Averta Demo', sans-serif;
         font-size: 24px;
@@ -109,7 +127,9 @@
 </script>
 <body class="cursor" onmousemove="followMouse(event)">
     <form method="POST" action="">
-        <p style="margin: 0 auto 35px auto;font-size: 60px; line-height:0.97;width:350px">Let's ride</p>
+        <div class="typewriter">
+            <h1 style="margin: 0 auto 35px auto;font-size: 60px; line-height:0.97;">Let's ride.</h1>
+        </div>
         <div class="input-parent">
             <input id="1" type="tel" placeholder="Enter your mobile number" onkeyup="done(event)" pattern="[0-9]{11}"/>
         </div>
