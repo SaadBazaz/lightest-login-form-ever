@@ -1,5 +1,5 @@
 # lightest-login-form-ever
-A collection of beautiful login forms under 100 lines of code (2KB). [Website](https://saadbazaz.github.io/lightest-login-form-ever/)
+100 days of beautiful login forms, under 100 lines of code (2KB). [Website](https://saadbazaz.github.io/lightest-login-form-ever/)
 
 
 ## Sample Screenshots
