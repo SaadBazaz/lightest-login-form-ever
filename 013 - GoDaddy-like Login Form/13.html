@@ -93,11 +93,11 @@
         eye = e.target;
         if (pass_field.type == "password") {
             pass_field.type = "text";
-            eye.src = "./showPassword.3eea0a28.svg";
+            eye.innerHTML = "Hide";
         }
         else {
             pass_field.type = "password";
-            eye.src = "./hidePassword.d3d87c2c.svg";
+            eye.innerHTML = "Show";
         }
     }
 </script>
