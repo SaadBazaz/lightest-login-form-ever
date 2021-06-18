@@ -19,7 +19,7 @@
     }
     header{
         height:80px;
-        width: 100%;
+        width: 100vw;
         padding-left:340px;
         display:flex;
         flex-direction:row;
@@ -28,7 +28,7 @@
     .main-card{
         background-color:white;
         box-shadow: 0 4px 18px rgba(27, 27, 27, 0.454);
-        width: fit-content;
+        width: 810px;
         height: 300px;
         margin:6px 200px;
         display:flex;
@@ -65,6 +65,25 @@
     ol{
         padding:7px 25px ;
     }
+    @media only screen and (max-width: 1050px) {
+        h1{
+            font-size: 24px;
+        }
+        li{
+            font-size: 16px;
+        }
+        .main-card{
+            width: 80vw;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        .main-card{
+            flex-direction: column;
+            align-items: center;
+            width: 90vw;
+            height:fit-content;
+        }
+    }
 </style>
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -84,7 +103,7 @@
             </ol>            
         </div>
         <form action="#" method="POST">
-        <img id="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" style="text-align: center;margin:0;width:220px;height:auto;animation: fadeIn 0.9s;" />
+        <img id="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" style="text-align:center;margin:0;width:220px;height:auto;" />
             <label for="1" style="margin-top:20px; text-align: center;">
                 <input id="1" name="1" type="checkbox" name="Keep me signed in" checked/>
                 Keep me signed in
