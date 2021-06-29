@@ -29,7 +29,8 @@
         background-color:white;
         box-shadow: 0 4px 18px rgba(27, 27, 27, 0.454);
         width: 810px;
-        height: 300px;
+        min-height: 300px;
+        height: fit-content;
         margin:6px 200px;
         display:flex;
         flex-direction:row;
@@ -63,7 +64,7 @@
         vertical-align:middle
     }
     ol{
-        padding:7px 25px ;
+        padding:7px 25px;
     }
     @media only screen and (max-width: 1050px) {
         h1{
@@ -103,7 +104,7 @@
             </ol>            
         </div>
         <form action="#" method="POST">
-        <img id="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" style="text-align:center;margin:0;width:220px;height:auto;" />
+            <img id="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" style="text-align:center;margin:0;width:220px;height:auto;" />
             <label for="1" style="margin-top:20px; text-align: center;">
                 <input id="1" name="1" type="checkbox" name="Keep me signed in" checked/>
                 Keep me signed in
